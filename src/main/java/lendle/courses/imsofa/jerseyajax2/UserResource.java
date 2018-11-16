@@ -39,10 +39,17 @@ public class UserResource {
         return 1;
     }
     ///////////////////////////////////
-    
+    @DELETE
     //加上 @DELETE 等等 annotation，實作 delete
-    public int deleteUser(String id){
-        return 0;
+    public int deleteUser(@FormParam("id") String id){
+        User user = UserDB.getUser(id);
+        if (user!=null){
+            UserDB.deleteUser(user);
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
     /////////////////////////////////////////
 }

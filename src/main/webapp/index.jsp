@@ -24,6 +24,14 @@
             function deleteUser(id){
                 //用 delete 呼叫 webapi/user
                 $.ajax("webapi/user", {
+                    type:'DELETE',
+                    data:{
+                        "id":id
+                    },
+                    success:function(data){
+                        alert(data);
+                    }
+                            
                 });
                 ///////////////////////////
             }
