@@ -40,6 +40,7 @@ public class UserResource {
     }
     ///////////////////////////////////
     @DELETE
+    @Path("/{id}")
     //加上 @DELETE 等等 annotation，實作 delete
     public int deleteUser(@FormParam("id") String id){
         User user = UserDB.getUser(id);
