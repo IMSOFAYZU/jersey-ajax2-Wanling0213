@@ -35,7 +35,11 @@
                 //注意參數，要傳輸 json 格式字串
                 $.ajax("webapi/user", {
                     type:"put",
-                    data:JSON.stringify(),
+                    data:JSON.stringify({
+                        id:$("#id").val(),
+                        password:$("#password").val(),
+                        email:$("#email").val()
+                    }),
                     contentType:"application/json",
                     success:function(data){
                         alert(data);}
