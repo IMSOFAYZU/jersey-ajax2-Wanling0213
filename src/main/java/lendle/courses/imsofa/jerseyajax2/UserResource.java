@@ -27,10 +27,13 @@ public class UserResource {
         return UserDB.getUser(id);
     }
     ///////////////////////////////////////////////
-    
+    @PUT 
+    @Consumes(MediaType.APPLICATION_JSON)
     //加上 @PUT 等等 annotation，實作 edit
     public int updateUser(User user){
-        return 0;
+        UserDB.deleteUser(user);
+        UserDB.addUser(user);
+        return 1;
     }
     //////////////////////////////////////
     
