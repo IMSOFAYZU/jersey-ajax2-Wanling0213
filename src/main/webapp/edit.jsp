@@ -18,7 +18,14 @@
             $(document).ready(function () {
                 //從 /webapi/user/{id} 讀入資料，填到指定欄位
                 $.ajax("webapi/user/<%=request.getParameter("id")%>", {
-                    
+                    type:"get",
+                    success:function(d){
+                        console.log(d);
+                        $("#id").val(d.id);
+                        $("#password").val(d.password);
+                        $("#email").val(d.email);
+                    }
+                            
                 });
                 //////////////////////////////////////////
             });
@@ -30,8 +37,8 @@
                     type:"put",
                     data:JSON.stringify(),
                     contentType:"application/json",
-                    success:function{
-                        alert(data);
+                    success:function(data){
+                        alert(data);}
                     });
                 ////////////////////////////
             }
